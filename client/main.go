@@ -51,7 +51,7 @@ func main() {
 		return
 	}
 
-	div, err := c.Division(context.Background(), &pb.DivReq{Num1: -1.1, Num2: 2.2})
+	div, err := c.Division(context.Background(), &pb.DivReq{Num1: 3, Num2: 0.5})
 	if err != nil {
 		log.Println("error whiling division nums:", err.Error())
 		return
@@ -63,13 +63,13 @@ func main() {
 		return
 	}
 
-	pow, err := c.Power(context.Background(), &pb.PowReq{Num1: 2, Num2: 10})
+	pow, err := c.Power(context.Background(), &pb.PowReq{Num1: 3, Num2: 2})
 	if err != nil {
 		log.Println("error while finding power of the num:", err.Error())
 		return
 	}
 
-	min, err := c.ArrayMin(context.Background(), &pb.MnReq{Nums: []int32{2, 3, 4, 3, 42, 3}})
+	min, err := c.ArrayMin(context.Background(), &pb.MnReq{Nums: []int32{-3, 7, 32, 56, 8}})
 	if err != nil {
 		log.Println("error while finding  min number of the given array", err.Error())
 		return
