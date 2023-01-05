@@ -46,7 +46,7 @@ func (u *user_server) GetUserById(ctx context.Context, req *pb.UserPrimayKey) (*
 		}
 	}
 
-	return nil, errors.New("Not found user")
+	return nil, errors.New("not found user")
 }
 
 func (s *user_server) Summ(ctx context.Context, req *pb.Nums) (*pb.Sum, error) {
@@ -77,21 +77,19 @@ func (s *user_server) Add(ctx context.Context, req *pb.Nums) (*pb.Sum, error) {
 func (s *user_server) Division(ctx context.Context, req *pb.DivReq) (*pb.DivResp, error) {
 	var division float32
 	if req.Num2 == 0 {
-		return nil, errors.New("Bo'luvchi son 0 ga teng! Boshqa son kiriting!")
+		return nil, errors.New("bo'luvchi son 0 ga teng! Boshqa son kiriting")
 	}
 	division = req.Num1 / req.Num2
 	return &pb.DivResp{Num3: division}, nil
 }
 
 func (s *user_server) Multiplication(ctx context.Context, req *pb.MultReq) (*pb.MultResp, error) {
-	var multiplication float32
-	multiplication = req.Num1 * req.Num2
+	var multiplication float32 = req.Num1 * req.Num2
 	return &pb.MultResp{Num3: multiplication}, nil
 }
 
 func (s *user_server) Subtraction(ctx context.Context, req *pb.SubtReq) (*pb.SubtResp, error) {
-	var subtraction float32
-	subtraction = req.Num1 - req.Num2
+	var subtraction float32 = req.Num1 - req.Num2
 	return &pb.SubtResp{Num3: subtraction}, nil
 }
 
@@ -139,7 +137,7 @@ func (s *user_server) Power(ctx context.Context, req *pb.PowReq) (*pb.PowResp, e
 		return &pb.PowResp{Num3: 1}, nil
 	}
 	if req.Num2 < 0 {
-		return nil, errors.New("Power should be positive number!")
+		return nil, errors.New("Power should be positive number")
 
 	}
 	for req.Num2 != 0 {
